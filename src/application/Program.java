@@ -1,7 +1,6 @@
 package application;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -9,38 +8,23 @@ public class Program {
 
 	public static void main(String[] args) {
 
-		Set<String> names1 = new HashSet<>();
-		Set<String> names2 = new TreeSet<>();
-		Set<String> names3 = new LinkedHashSet<>();
+		Set<Integer> a = new TreeSet<>(Arrays.asList(0,2,4,5,6,8,10));
+		Set<Integer> b = new TreeSet<>(Arrays.asList(5,6,7,8,9,10));
 		
-		names1.add("Djalma");
-		names1.add("Virginia");
-		names1.add("Eurides");
-		names1.add("Sara");
+		//union
+		Set<Integer> c = new TreeSet<>(a);
+		c.addAll(b);
+		System.out.println(c);
 		
-		names2.add("Djalma");
-		names2.add("Virginia");
-		names2.add("Eurides");
-		names2.add("Sara");
+		//intersection
+		Set<Integer> d = new TreeSet<>(a);
+		d.retainAll(b);
+		System.out.println(d);
 		
-		names3.add("Djalma");
-		names3.add("Virginia");
-		names3.add("Eurides");
-		names3.add("Sara");
-		
-		for (String s : names1) {
-			System.out.println(s);
-		}
-		
-		System.out.println();
-		for (String s : names2) {
-			System.out.println(s);
-		}
-		
-		System.out.println();
-		for (String s : names3) {
-			System.out.println(s);
-		}
+		//difference
+		Set<Integer> e = new TreeSet<>(a);
+		e.removeAll(b);
+		System.out.println(e);
 
 	}
 
